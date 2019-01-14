@@ -14,7 +14,9 @@ namespace ManagementSystem
             get
             {
                 if (_ins == null)
+                {
                     _ins = new DataProvider();
+                }
                 return _ins;
             }
             set

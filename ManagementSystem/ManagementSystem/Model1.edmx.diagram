@@ -5,14 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a55518c53c244af69f8083f4c213fa93" Name="Diagram1">
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Bill" Width="1.5" PointX="3.75" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.BillDetail" Width="1.5" PointX="6.625" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Category" Width="1.5" PointX="11.375" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Customer" Width="1.5" PointX="3.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Product" Width="1.5" PointX="11.125" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Sale" Width="1.5" PointX="0.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Bill" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.BillDetail" Width="1.5" PointX="5.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Category" Width="1.5" PointX="11.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Customer" Width="1.5" PointX="5.625" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Product" Width="1.5" PointX="8.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Sale" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyBanHangModel.Transport" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Unit" Width="1.5" PointX="6.875" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Unit" Width="1.5" PointX="11.375" PointY="3.875" IsExpanded="true" />
         <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Custome__48CFD27E" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Sale__49C3F6B7" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Transpo__4AB81AF0" ManuallyRouted="false" />
