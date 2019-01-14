@@ -15,26 +15,24 @@
         </Grid.RowDefinitions>
         <materialDesign:Card Grid.Row="0">
             <Grid>
-                <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Tên đơn vị đo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox x:Name="UnitDisplayName" Margin="5" materialDesign:HintAssist.Hint="Tên đơn vị đo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             </Grid>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="1">
             <WrapPanel HorizontalAlignment="Center">
-                <Button Content="Thêm" Margin="5" Width="100"></Button>
-                <Button Content="Xóa" Margin="5" Width="100"></Button>
-                <Button Content="Sửa" Margin="5" Width="100"></Button>
+                <Button Click="btn_Add" Content="Thêm" Margin="5" Width="100"></Button>
+                <Button Click="btn_Del" Content="Xóa" Margin="5" Width="100"></Button>
+                <Button Click="btn_Edit" Content="Sửa" Margin="5" Width="100"></Button>
             </WrapPanel>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView ItemsSource="{Binding ListUnit}" SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
-                            <GridViewColumn Header="Tên đơn vị đo" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+                <DataGrid PreviewMouseDoubleClick="mouseLeft" Name="UnitDataGrid" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                        <DataGridTextColumn Header="Đơn vị đo" Binding="{Binding DisplayName}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </ScrollViewer>
         </materialDesign:Card>
     </Grid>
