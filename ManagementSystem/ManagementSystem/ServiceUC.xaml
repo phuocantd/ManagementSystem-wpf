@@ -5,8 +5,90 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ManagementSystem"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <materialDesign:Card Grid.Row="0"  Background="DeepSkyBlue">
+                <TextBlock Text="Vận chuyển" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Row="1">
+                <WrapPanel>
+                    <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Tên Vận chuyển" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Text="{Binding TransportFee ,UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Phí vận chuyển" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Text="{Binding Distance, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Khoảng cách" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                </WrapPanel>
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Row="2">
+                <WrapPanel HorizontalAlignment="Center">
+                    <Button Content="Thêm" Margin="5" Width="100"></Button>
+                    <Button Content="Xóa" Margin="5" Width="100"></Button>
+                    <Button Content="Sửa" Margin="5" Width="100"></Button>
+                </WrapPanel>
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Row="3" Margin="5" VerticalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding ListUnit}" SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
+                                <GridViewColumn Header="Tên loại vận chuyển" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
+                                <GridViewColumn Header="Phí vận chuyển" DisplayMemberBinding="{Binding TransportFee}"></GridViewColumn>
+                                <GridViewColumn Header="Khoảng cách" DisplayMemberBinding="{Binding Distance}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+
+            </materialDesign:Card>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <materialDesign:Card Grid.Row="0"  Background="DeepSkyBlue">
+                <TextBlock Text="Khuyến mãi" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Row="1">
+                <WrapPanel>
+                    <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Tên loại giảm giá" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Text="{Binding Sale, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Tỷ lệ giảm giá" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                </WrapPanel>
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Row="2">
+                <WrapPanel HorizontalAlignment="Center">
+                    <Button Content="Thêm" Margin="5" Width="100"></Button>
+                    <Button Content="Xóa" Margin="5" Width="100"></Button>
+                    <Button Content="Sửa" Margin="5" Width="100"></Button>
+                </WrapPanel>
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Row="3" Margin="5" VerticalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding ListUnit}" SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
+                                <GridViewColumn Header="Tên loại giảm giá" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
+                                <GridViewColumn Header="Tỷ lệ giảm giá" DisplayMemberBinding="{Binding Sale}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+
+            </materialDesign:Card>
+        </Grid>
     </Grid>
 </UserControl>
