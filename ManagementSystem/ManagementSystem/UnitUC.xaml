@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <materialDesign:Card Grid.Row="0">
             <Grid>
-                <TextBox Text="{Binding DisplayName}" Margin="5" materialDesign:HintAssist.Hint="Tên đơn vị đo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Tên đơn vị đo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             </Grid>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="1">
