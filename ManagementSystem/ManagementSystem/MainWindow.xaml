@@ -94,16 +94,16 @@
                             <TextBlock Text="Loại sản phẩm" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemCustomer" Height="auto">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="AccountMultiple" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Khách hàng" VerticalAlignment="Center"  Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
                     <ListViewItem x:Name="ItemUnit" Height="auto">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ScaleBalance" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Đơn vị đo" VerticalAlignment="Center"  Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemCustomer" Height="auto">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountMultiple" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="Khách hàng" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemService" Height="auto">
