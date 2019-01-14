@@ -20,10 +20,36 @@ namespace ManagementSystem
     /// </summary>
     public partial class CustomerUC : UserControl
     {
+
         public CustomerUC()
         {
             InitializeComponent();
+            Load();
         }
 
+        private void Load()
+        {
+            CustomerDTG.ItemsSource = DataProvider.Ins.DB.Customers.ToList();
+        }
+
+        private void btn_Add(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Del(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Edit(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void doubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

@@ -24,25 +24,23 @@
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="1">
             <WrapPanel HorizontalAlignment="Center">
-                <Button Content="Thêm" Margin="5" Width="100"></Button>
-                <Button Content="Xóa" Margin="5" Width="100"></Button>
-                <Button Content="Sửa" Margin="5" Width="100"></Button>
+                <Button Click="btn_Add" Content="Thêm" Margin="5" Width="100"></Button>
+                <Button Click="btn_Del" Content="Xóa" Margin="5" Width="100"></Button>
+                <Button Click="btn_Edit" Content="Sửa" Margin="5" Width="100"></Button>
             </WrapPanel>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView ItemsSource="{Binding ListUnit}" SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
-                            <GridViewColumn Header="Tên khách hàng" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
-                            <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding Address}"></GridViewColumn>
-                            <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding Phone}"></GridViewColumn>
-                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}"></GridViewColumn>
-                            <GridViewColumn Header="Thông tin khác" DisplayMemberBinding="{Binding MoreInfo}"></GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+                <DataGrid x:Name="CustomerDTG" PreviewMouseDoubleClick="doubleClick" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                        <DataGridTextColumn Header="Tên khách hàng" Binding="{Binding DisplayName}"/>
+                        <DataGridTextColumn Header="Địa chỉ" Binding="{Binding AddressCus}"/>
+                        <DataGridTextColumn Header="Số điện thoại" Binding="{Binding Phone}"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                        <DataGridTextColumn Header="Thông tin khác" Binding="{Binding MoreInfo}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </ScrollViewer>
 
         </materialDesign:Card>
