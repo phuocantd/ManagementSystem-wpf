@@ -5,9 +5,45 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ManagementSystem"
              mc:Ignorable="d" 
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Grid.Row="0">
+            <WrapPanel>
+                <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Tên sản phẩm" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding Unit.DisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Đơn vị" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <ComboBox ItemsSource="{Binding Category}" SelectedItem="{Binding SelectedCategory,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  materialDesign:HintAssist.Hint="Loại sản phẩm" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+                <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Đơn giá" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox Text="{Binding Category.DisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Loại sản phẩm" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="1">
+            <WrapPanel HorizontalAlignment="Center">
+                <Button Content="Thêm" Margin="5" Width="100"></Button>
+                <Button Content="Xóa" Margin="5" Width="100"></Button>
+                <Button Content="Sửa" Margin="5" Width="100"></Button>
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ListView ItemsSource="{Binding ListUnit}" SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
+                            <GridViewColumn Header="Tên sản phẩm" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
+                            <GridViewColumn Header="Đơn vị đo" DisplayMemberBinding="{Binding Unit.DisplayName}"></GridViewColumn>
+                            <GridViewColumn Header="Đơn giá" DisplayMemberBinding="{Binding Price}"></GridViewColumn>
+                            <GridViewColumn Header="Loại sản phẩm" DisplayMemberBinding="{Binding Category.DisplayName}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+
+        </materialDesign:Card>
     </Grid>
 </UserControl>
