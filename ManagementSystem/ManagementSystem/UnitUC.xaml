@@ -18,21 +18,23 @@
             </Grid>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="1">
-            <WrapPanel>
+            <WrapPanel HorizontalAlignment="Center">
                 <Button Content="Thêm" Margin="5" Width="100"></Button>
                 <Button Content="Xóa" Margin="5" Width="100"></Button>
                 <Button Content="Sửa" Margin="5" Width="100"></Button>
             </WrapPanel>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
-            <ListView ItemsSource="{Binding ListUnit}" SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
-                        <GridViewColumn Header="Tên đơn vị đo" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ListView ItemsSource="{Binding ListUnit}" SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
+                            <GridViewColumn Header="Tên đơn vị đo" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
         </materialDesign:Card>
     </Grid>
 </UserControl>

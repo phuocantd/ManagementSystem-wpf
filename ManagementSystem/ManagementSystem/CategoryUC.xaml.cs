@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ManagementSystem
 {
     /// <summary>
-    /// Interaction logic for FactoryUC.xaml
+    /// Interaction logic for CategoryUC.xaml
     /// </summary>
-    public partial class FactoryUC : UserControl
+    public partial class CategoryUC : UserControl
     {
-        public FactoryUC()
+        public CategoryUC()
         {
             InitializeComponent();
         }

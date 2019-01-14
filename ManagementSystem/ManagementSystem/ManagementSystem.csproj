@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Custom-Icon-Design-Pretty-Office-11-Shop.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
@@ -61,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CategoryUC.xaml.cs">
+      <DependentUpon>CategoryUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ServiceUC.xaml.cs">
       <DependentUpon>ServiceUC.xaml</DependentUpon>
     </Compile>
@@ -74,11 +80,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomerUC.xaml">
+    <Page Include="CategoryUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FactoryUC.xaml">
+    <Page Include="CustomerUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -99,9 +105,6 @@
     </Compile>
     <Compile Include="CustomerUC.xaml.cs">
       <DependentUpon>CustomerUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FactoryUC.xaml.cs">
-      <DependentUpon>FactoryUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="HomeUC.xaml.cs">
       <DependentUpon>HomeUC.xaml</DependentUpon>
@@ -156,6 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Custom-Icon-Design-Pretty-Office-11-Shop.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

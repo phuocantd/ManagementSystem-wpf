@@ -69,9 +69,9 @@ namespace ManagementSystem
                     usc = new CustomerUC();
                     GridMain.Children.Add(usc);
                     break;
-                case "ItemFactory":
-                    TitleFunction.Text = "Nhà sản xuất";
-                    usc = new FactoryUC();
+                case "ItemCategory":
+                    TitleFunction.Text = "Loại sản phẩm";
+                    usc = new CategoryUC();
                     GridMain.Children.Add(usc);
                     break;
                 case "ItemUnit":
