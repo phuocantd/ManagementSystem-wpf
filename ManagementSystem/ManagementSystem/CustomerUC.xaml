@@ -15,11 +15,11 @@
         </Grid.RowDefinitions>
         <materialDesign:Card Grid.Row="0">
             <WrapPanel>
-                <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <TextBox Text="{Binding MoreInfo, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Thông tin khác" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox x:Name="DisplayName" Margin="5" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox x:Name="Address" Margin="5" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox x:Name="Phone" Margin="5" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox x:Name="Email" Margin="5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                <TextBox x:Name="MoreInfo" Margin="5" materialDesign:HintAssist.Hint="Thông tin khác" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
             </WrapPanel>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="1">
@@ -37,7 +37,7 @@
                         <DataGridTextColumn Header="Tên khách hàng" Binding="{Binding DisplayName}"/>
                         <DataGridTextColumn Header="Địa chỉ" Binding="{Binding AddressCus}"/>
                         <DataGridTextColumn Header="Số điện thoại" Binding="{Binding Phone}"/>
-                        <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Mail}"/>
                         <DataGridTextColumn Header="Thông tin khác" Binding="{Binding MoreInfo}"/>
                     </DataGrid.Columns>
                 </DataGrid>

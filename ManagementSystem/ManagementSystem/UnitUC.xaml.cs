@@ -21,8 +21,6 @@ namespace ManagementSystem
     /// </summary>
     public partial class UnitUC : UserControl
     {
-        Unit tmp;
-
         public UnitUC()
         {
             InitializeComponent();
@@ -34,9 +32,14 @@ namespace ManagementSystem
             UnitDataGrid.ItemsSource = DataProvider.Ins.DB.Units.ToList();
         }
 
+        private void setNull()
+        {
+            UnitDisplayName.Text = "";
+        }
+
         private void btn_Add(object sender, RoutedEventArgs e)
         {
-            if (UnitDisplayName.Text == "")
+            if (UnitDisplayName.Text == "" || checkExist(UnitDisplayName.Text))
             {
 
             }
@@ -45,14 +48,25 @@ namespace ManagementSystem
                 Unit newUnit = new Unit() { DisplayName = UnitDisplayName.Text };
                 DataProvider.Ins.DB.Units.Add(newUnit);
                 DataProvider.Ins.DB.SaveChanges();
-                Load();
+                Load(); setNull();
             }
             
         }
 
+        bool checkExist(string name)
+        {
+            int id = 0;
+            id = (from m in DataProvider.Ins.DB.Units
+                      where m.DisplayName == name
+                      select 1).Single();
+            return id == 1 ? true : false;
+        }
+
+
+
         private void btn_Edit(object sender, RoutedEventArgs e)
         {
-            if (UnitDisplayName.Text == "")
+            if (UnitDisplayName.Text == "" || checkExist(UnitDisplayName.Text))
             {
 
             }
@@ -65,7 +79,7 @@ namespace ManagementSystem
                 updateUnit.DisplayName = UnitDisplayName.Text;
 
                 DataProvider.Ins.DB.SaveChanges();
-                Load();
+                Load(); setNull();
             }
             
         }
@@ -78,7 +92,7 @@ namespace ManagementSystem
                 var deleteUnit = DataProvider.Ins.DB.Units.Where(m => m.ID == ID).Single();
                 DataProvider.Ins.DB.Units.Remove(deleteUnit);
                 DataProvider.Ins.DB.SaveChanges();
-                Load();
+                Load(); setNull();
             }
             catch{
 
@@ -88,7 +102,7 @@ namespace ManagementSystem
 
         private void doubleClick(object sender, MouseButtonEventArgs e)
         {
-            tmp = (UnitDataGrid.SelectedItem as Unit);
+            Unit tmp = (UnitDataGrid.SelectedItem as Unit);
             UnitDisplayName.Text = tmp.DisplayName;
         }
     }
