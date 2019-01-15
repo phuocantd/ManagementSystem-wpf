@@ -14,9 +14,9 @@ namespace ManagementSystem
     
     public partial class BillDetail
     {
-        public string ID { get; set; }
-        public string ID_Bill { get; set; }
-        public string ID_Product { get; set; }
+        public int ID { get; set; }
+        public int ID_Bill { get; set; }
+        public int ID_Product { get; set; }
         public Nullable<int> SumCount { get; set; }
         public Nullable<long> SumPrice { get; set; }
     

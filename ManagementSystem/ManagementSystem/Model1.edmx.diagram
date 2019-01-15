@@ -5,21 +5,21 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a55518c53c244af69f8083f4c213fa93" Name="Diagram1">
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Bill" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.BillDetail" Width="1.5" PointX="5.375" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Category" Width="1.5" PointX="11.125" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Customer" Width="1.5" PointX="5.625" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Product" Width="1.5" PointX="8.5" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Sale" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Transport" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Unit" Width="1.5" PointX="11.375" PointY="3.875" IsExpanded="true" />
-        <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Custome__48CFD27E" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Sale__49C3F6B7" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Transpo__4AB81AF0" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyBanHangModel.FK__BillDetai__SumPr__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyBanHangModel.FK__BillDetai__ID_Pr__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyBanHangModel.FK__Product__ID_Cate__45F365D3" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyBanHangModel.FK__Product__ID_Cate__44FF419A" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Bill" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.BillDetail" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Category" Width="1.5" PointX="0.75" PointY="13.25" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Customer" Width="1.5" PointX="0.75" PointY="7.5" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Product" Width="1.5" PointX="3" PointY="11.5" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Sale" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Transport" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Unit" Width="1.5" PointX="0.75" PointY="11" />
+        <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Custome__48CFD27E" />
+        <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Sale__49C3F6B7" />
+        <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Transpo__4AB81AF0" />
+        <AssociationConnector Association="QuanLyBanHangModel.FK__BillDetai__SumPr__4E88ABD4" />
+        <AssociationConnector Association="QuanLyBanHangModel.FK__BillDetai__ID_Pr__4F7CD00D" />
+        <AssociationConnector Association="QuanLyBanHangModel.FK__Product__ID_Cate__45F365D3" />
+        <AssociationConnector Association="QuanLyBanHangModel.FK__Product__ID_Cate__44FF419A" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

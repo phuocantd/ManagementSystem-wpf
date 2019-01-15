@@ -37,22 +37,35 @@ namespace ManagementSystem
             UnitDisplayName.Text = "";
         }
 
+        bool checkInput()
+        {
+            if (UnitDisplayName.Text == "")
+            {
+                return false;
+            }
+            return true;
+        }
+
         bool checkExist(string name)
         {
-            int id = 0;
-            id = (from m in DataProvider.Ins.DB.Units
+            try
+            {
+                int id = 0;
+                id = (from m in DataProvider.Ins.DB.Units
                       where m.DisplayName == name
                       select 1).Single();
-            return id == 1 ? true : false;
+                return id == 1 ? false : true;
+            }
+            catch
+            {
+                return true;
+            }
+            
         }
 
         private void btn_Add(object sender, RoutedEventArgs e)
         {
-            if (UnitDisplayName.Text == "" || checkExist(UnitDisplayName.Text))
-            {
-
-            }
-            else
+            if (checkInput() && checkExist(UnitDisplayName.Text))
             {
                 Unit newUnit = new Unit() { DisplayName = UnitDisplayName.Text };
                 DataProvider.Ins.DB.Units.Add(newUnit);
@@ -64,11 +77,7 @@ namespace ManagementSystem
 
         private void btn_Edit(object sender, RoutedEventArgs e)
         {
-            if (UnitDisplayName.Text == "" || checkExist(UnitDisplayName.Text))
-            {
-
-            }
-            else
+            if (checkInput() && checkExist(UnitDisplayName.Text))
             {
                 int ID = (UnitDataGrid.SelectedItem as Unit).ID;
                 Unit updateUnit = (from m in DataProvider.Ins.DB.Units

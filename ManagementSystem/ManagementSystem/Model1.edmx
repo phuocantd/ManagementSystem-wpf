@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuanLyBanHangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuanLyBanHangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bill">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DateBill" Type="datetime" />
           <Property Name="ID_Customer" Type="int" />
           <Property Name="ID_Sale" Type="int" />
@@ -20,9 +20,9 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ID_Bill" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ID_Product" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Bill" Type="int" Nullable="false" />
+          <Property Name="ID_Product" Type="int" Nullable="false" />
           <Property Name="SumCount" Type="int" />
           <Property Name="SumPrice" Type="bigint" />
         </EntityType>
@@ -48,7 +48,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DisplayName" Type="nvarchar(max)" />
           <Property Name="Counts" Type="int" />
           <Property Name="Price" Type="float" />
@@ -200,37 +200,74 @@
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLyBanHangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QuanLyBanHangEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bills" EntityType="QuanLyBanHangModel.Bill" />
+          <EntitySet Name="BillDetails" EntityType="QuanLyBanHangModel.BillDetail" />
+          <EntitySet Name="Categories" EntityType="QuanLyBanHangModel.Category" />
+          <EntitySet Name="Customers" EntityType="QuanLyBanHangModel.Customer" />
+          <EntitySet Name="Products" EntityType="QuanLyBanHangModel.Product" />
+          <EntitySet Name="Sales" EntityType="QuanLyBanHangModel.Sale" />
+          <EntitySet Name="Transports" EntityType="QuanLyBanHangModel.Transport" />
+          <EntitySet Name="Units" EntityType="QuanLyBanHangModel.Unit" />
+          <AssociationSet Name="FK__Bill__ID_Custome__48CFD27E" Association="QuanLyBanHangModel.FK__Bill__ID_Custome__48CFD27E">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bill__ID_Sale__49C3F6B7" Association="QuanLyBanHangModel.FK__Bill__ID_Sale__49C3F6B7">
+            <End Role="Sale" EntitySet="Sales" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bill__ID_Transpo__4AB81AF0" Association="QuanLyBanHangModel.FK__Bill__ID_Transpo__4AB81AF0">
+            <End Role="Transport" EntitySet="Transports" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetai__SumPr__4E88ABD4" Association="QuanLyBanHangModel.FK__BillDetai__SumPr__4E88ABD4">
+            <End Role="Bill" EntitySet="Bills" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BillDetai__ID_Pr__4F7CD00D" Association="QuanLyBanHangModel.FK__BillDetai__ID_Pr__4F7CD00D">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__ID_Cate__45F365D3" Association="QuanLyBanHangModel.FK__Product__ID_Cate__45F365D3">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__ID_Cate__44FF419A" Association="QuanLyBanHangModel.FK__Product__ID_Cate__44FF419A">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Bill">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DateBill" Type="DateTime" Precision="3" />
           <Property Name="ID_Customer" Type="Int32" />
           <Property Name="ID_Sale" Type="Int32" />
           <Property Name="ID_Transport" Type="Int32" />
           <Property Name="SumPrice" Type="Int64" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK__Bill__ID_Custome__48CFD27E" FromRole="Bill" ToRole="Customer" />
-          <NavigationProperty Name="Sale" Relationship="Self.FK__Bill__ID_Sale__49C3F6B7" FromRole="Bill" ToRole="Sale" />
-          <NavigationProperty Name="Transport" Relationship="Self.FK__Bill__ID_Transpo__4AB81AF0" FromRole="Bill" ToRole="Transport" />
-          <NavigationProperty Name="BillDetails" Relationship="Self.FK__BillDetai__SumPr__4E88ABD4" FromRole="Bill" ToRole="BillDetail" />
+          <NavigationProperty Name="Customer" Relationship="QuanLyBanHangModel.FK__Bill__ID_Custome__48CFD27E" FromRole="Bill" ToRole="Customer" />
+          <NavigationProperty Name="Sale" Relationship="QuanLyBanHangModel.FK__Bill__ID_Sale__49C3F6B7" FromRole="Bill" ToRole="Sale" />
+          <NavigationProperty Name="Transport" Relationship="QuanLyBanHangModel.FK__Bill__ID_Transpo__4AB81AF0" FromRole="Bill" ToRole="Transport" />
+          <NavigationProperty Name="BillDetails" Relationship="QuanLyBanHangModel.FK__BillDetai__SumPr__4E88ABD4" FromRole="Bill" ToRole="BillDetail" />
         </EntityType>
         <EntityType Name="BillDetail">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ID_Bill" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ID_Product" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Bill" Type="Int32" Nullable="false" />
+          <Property Name="ID_Product" Type="Int32" Nullable="false" />
           <Property Name="SumCount" Type="Int32" />
           <Property Name="SumPrice" Type="Int64" />
-          <NavigationProperty Name="Bill" Relationship="Self.FK__BillDetai__SumPr__4E88ABD4" FromRole="BillDetail" ToRole="Bill" />
-          <NavigationProperty Name="Product" Relationship="Self.FK__BillDetai__ID_Pr__4F7CD00D" FromRole="BillDetail" ToRole="Product" />
+          <NavigationProperty Name="Bill" Relationship="QuanLyBanHangModel.FK__BillDetai__SumPr__4E88ABD4" FromRole="BillDetail" ToRole="Bill" />
+          <NavigationProperty Name="Product" Relationship="QuanLyBanHangModel.FK__BillDetai__ID_Pr__4F7CD00D" FromRole="BillDetail" ToRole="Product" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -238,7 +275,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Products" Relationship="Self.FK__Product__ID_Cate__45F365D3" FromRole="Category" ToRole="Product" />
+          <NavigationProperty Name="Products" Relationship="QuanLyBanHangModel.FK__Product__ID_Cate__45F365D3" FromRole="Category" ToRole="Product" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -250,21 +287,21 @@
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MoreInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__ID_Custome__48CFD27E" FromRole="Customer" ToRole="Bill" />
+          <NavigationProperty Name="Bills" Relationship="QuanLyBanHangModel.FK__Bill__ID_Custome__48CFD27E" FromRole="Customer" ToRole="Bill" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Counts" Type="Int32" />
           <Property Name="Price" Type="Double" />
           <Property Name="ID_Unit" Type="Int32" Nullable="false" />
           <Property Name="ID_Category" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BillDetails" Relationship="Self.FK__BillDetai__ID_Pr__4F7CD00D" FromRole="Product" ToRole="BillDetail" />
-          <NavigationProperty Name="Category" Relationship="Self.FK__Product__ID_Cate__45F365D3" FromRole="Product" ToRole="Category" />
-          <NavigationProperty Name="Unit" Relationship="Self.FK__Product__ID_Cate__44FF419A" FromRole="Product" ToRole="Unit" />
+          <NavigationProperty Name="BillDetails" Relationship="QuanLyBanHangModel.FK__BillDetai__ID_Pr__4F7CD00D" FromRole="Product" ToRole="BillDetail" />
+          <NavigationProperty Name="Category" Relationship="QuanLyBanHangModel.FK__Product__ID_Cate__45F365D3" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Unit" Relationship="QuanLyBanHangModel.FK__Product__ID_Cate__44FF419A" FromRole="Product" ToRole="Unit" />
         </EntityType>
         <EntityType Name="Sale">
           <Key>
@@ -273,7 +310,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PercentSale" Type="Double" />
-          <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__ID_Sale__49C3F6B7" FromRole="Sale" ToRole="Bill" />
+          <NavigationProperty Name="Bills" Relationship="QuanLyBanHangModel.FK__Bill__ID_Sale__49C3F6B7" FromRole="Sale" ToRole="Bill" />
         </EntityType>
         <EntityType Name="Transport">
           <Key>
@@ -282,7 +319,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Double" />
-          <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__ID_Transpo__4AB81AF0" FromRole="Transport" ToRole="Bill" />
+          <NavigationProperty Name="Bills" Relationship="QuanLyBanHangModel.FK__Bill__ID_Transpo__4AB81AF0" FromRole="Transport" ToRole="Bill" />
         </EntityType>
         <EntityType Name="Unit">
           <Key>
@@ -290,11 +327,11 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Products" Relationship="Self.FK__Product__ID_Cate__44FF419A" FromRole="Unit" ToRole="Product" />
+          <NavigationProperty Name="Products" Relationship="QuanLyBanHangModel.FK__Product__ID_Cate__44FF419A" FromRole="Unit" ToRole="Product" />
         </EntityType>
         <Association Name="FK__Bill__ID_Custome__48CFD27E">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <End Type="QuanLyBanHangModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="QuanLyBanHangModel.Bill" Role="Bill" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="ID" />
@@ -305,8 +342,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Bill__ID_Sale__49C3F6B7">
-          <End Role="Sale" Type="Self.Sale" Multiplicity="0..1" />
-          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <End Type="QuanLyBanHangModel.Sale" Role="Sale" Multiplicity="0..1" />
+          <End Type="QuanLyBanHangModel.Bill" Role="Bill" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Sale">
               <PropertyRef Name="ID" />
@@ -317,8 +354,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Bill__ID_Transpo__4AB81AF0">
-          <End Role="Transport" Type="Self.Transport" Multiplicity="0..1" />
-          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <End Type="QuanLyBanHangModel.Transport" Role="Transport" Multiplicity="0..1" />
+          <End Type="QuanLyBanHangModel.Bill" Role="Bill" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Transport">
               <PropertyRef Name="ID" />
@@ -329,8 +366,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__BillDetai__SumPr__4E88ABD4">
-          <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
-          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <End Type="QuanLyBanHangModel.Bill" Role="Bill" Multiplicity="1" />
+          <End Type="QuanLyBanHangModel.BillDetail" Role="BillDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Bill">
               <PropertyRef Name="ID" />
@@ -341,8 +378,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__BillDetai__ID_Pr__4F7CD00D">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+          <End Type="QuanLyBanHangModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="QuanLyBanHangModel.BillDetail" Role="BillDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ID" />
@@ -353,8 +390,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Product__ID_Cate__45F365D3">
-          <End Role="Category" Type="Self.Category" Multiplicity="1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <End Type="QuanLyBanHangModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="QuanLyBanHangModel.Product" Role="Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="ID" />
@@ -365,8 +402,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Product__ID_Cate__44FF419A">
-          <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <End Type="QuanLyBanHangModel.Unit" Role="Unit" Multiplicity="1" />
+          <End Type="QuanLyBanHangModel.Product" Role="Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Unit">
               <PropertyRef Name="ID" />
@@ -376,45 +413,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QuanLyBanHangEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Bills" EntityType="Self.Bill" />
-          <EntitySet Name="BillDetails" EntityType="Self.BillDetail" />
-          <EntitySet Name="Categories" EntityType="Self.Category" />
-          <EntitySet Name="Customers" EntityType="Self.Customer" />
-          <EntitySet Name="Products" EntityType="Self.Product" />
-          <EntitySet Name="Sales" EntityType="Self.Sale" />
-          <EntitySet Name="Transports" EntityType="Self.Transport" />
-          <EntitySet Name="Units" EntityType="Self.Unit" />
-          <AssociationSet Name="FK__Bill__ID_Custome__48CFD27E" Association="Self.FK__Bill__ID_Custome__48CFD27E">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Bill" EntitySet="Bills" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Bill__ID_Sale__49C3F6B7" Association="Self.FK__Bill__ID_Sale__49C3F6B7">
-            <End Role="Sale" EntitySet="Sales" />
-            <End Role="Bill" EntitySet="Bills" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Bill__ID_Transpo__4AB81AF0" Association="Self.FK__Bill__ID_Transpo__4AB81AF0">
-            <End Role="Transport" EntitySet="Transports" />
-            <End Role="Bill" EntitySet="Bills" />
-          </AssociationSet>
-          <AssociationSet Name="FK__BillDetai__SumPr__4E88ABD4" Association="Self.FK__BillDetai__SumPr__4E88ABD4">
-            <End Role="Bill" EntitySet="Bills" />
-            <End Role="BillDetail" EntitySet="BillDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__BillDetai__ID_Pr__4F7CD00D" Association="Self.FK__BillDetai__ID_Pr__4F7CD00D">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="BillDetail" EntitySet="BillDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Product__ID_Cate__45F365D3" Association="Self.FK__Product__ID_Cate__45F365D3">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Product" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Product__ID_Cate__44FF419A" Association="Self.FK__Product__ID_Cate__44FF419A">
-            <End Role="Unit" EntitySet="Units" />
-            <End Role="Product" EntitySet="Products" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -423,81 +422,81 @@
           <EntitySetMapping Name="Bills">
             <EntityTypeMapping TypeName="QuanLyBanHangModel.Bill">
               <MappingFragment StoreEntitySet="Bill">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="DateBill" ColumnName="DateBill" />
-                <ScalarProperty Name="ID_Customer" ColumnName="ID_Customer" />
-                <ScalarProperty Name="ID_Sale" ColumnName="ID_Sale" />
-                <ScalarProperty Name="ID_Transport" ColumnName="ID_Transport" />
                 <ScalarProperty Name="SumPrice" ColumnName="SumPrice" />
+                <ScalarProperty Name="ID_Transport" ColumnName="ID_Transport" />
+                <ScalarProperty Name="ID_Sale" ColumnName="ID_Sale" />
+                <ScalarProperty Name="ID_Customer" ColumnName="ID_Customer" />
+                <ScalarProperty Name="DateBill" ColumnName="DateBill" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BillDetails">
             <EntityTypeMapping TypeName="QuanLyBanHangModel.BillDetail">
               <MappingFragment StoreEntitySet="BillDetail">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ID_Bill" ColumnName="ID_Bill" />
-                <ScalarProperty Name="ID_Product" ColumnName="ID_Product" />
-                <ScalarProperty Name="SumCount" ColumnName="SumCount" />
                 <ScalarProperty Name="SumPrice" ColumnName="SumPrice" />
+                <ScalarProperty Name="SumCount" ColumnName="SumCount" />
+                <ScalarProperty Name="ID_Product" ColumnName="ID_Product" />
+                <ScalarProperty Name="ID_Bill" ColumnName="ID_Bill" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="QuanLyBanHangModel.Category">
               <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="QuanLyBanHangModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
-                <ScalarProperty Name="AddressCus" ColumnName="AddressCus" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Mail" ColumnName="Mail" />
                 <ScalarProperty Name="MoreInfo" ColumnName="MoreInfo" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="AddressCus" ColumnName="AddressCus" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="QuanLyBanHangModel.Product">
               <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
-                <ScalarProperty Name="Counts" ColumnName="Counts" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="ID_Unit" ColumnName="ID_Unit" />
                 <ScalarProperty Name="ID_Category" ColumnName="ID_Category" />
+                <ScalarProperty Name="ID_Unit" ColumnName="ID_Unit" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Counts" ColumnName="Counts" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sales">
             <EntityTypeMapping TypeName="QuanLyBanHangModel.Sale">
               <MappingFragment StoreEntitySet="Sale">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
                 <ScalarProperty Name="PercentSale" ColumnName="PercentSale" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Transports">
             <EntityTypeMapping TypeName="QuanLyBanHangModel.Transport">
               <MappingFragment StoreEntitySet="Transport">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Units">
             <EntityTypeMapping TypeName="QuanLyBanHangModel.Unit">
               <MappingFragment StoreEntitySet="Unit">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

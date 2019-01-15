@@ -20,7 +20,7 @@ namespace ManagementSystem
             this.BillDetails = new HashSet<BillDetail>();
         }
     
-        public string ID { get; set; }
+        public int ID { get; set; }
         public Nullable<System.DateTime> DateBill { get; set; }
         public Nullable<int> ID_Customer { get; set; }
         public Nullable<int> ID_Sale { get; set; }
