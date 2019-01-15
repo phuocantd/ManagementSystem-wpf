@@ -25,11 +25,7 @@ namespace ManagementSystem
             InitializeComponent();
         }
 
-        private void btn_logout(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
+       
         private void btn_ButtonOpenMenu(object sender, RoutedEventArgs e)
         {
             ButtonCloseMenu.Visibility = Visibility.Visible;
@@ -92,6 +88,26 @@ namespace ManagementSystem
                 default:
                     break;
             }
+        }
+
+        private void btn_Aboutme(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.facebook.com/phuocantd");
+        }
+
+        private void btn_Source(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/phuocantd/ManagementSystem");
+        }
+
+        private void btn_Demo(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Exit(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

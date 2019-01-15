@@ -16,8 +16,8 @@
         <materialDesign:Card Grid.Row="0">
             <WrapPanel>
                 <TextBox x:Name="DisplayName" Margin="5" materialDesign:HintAssist.Hint="Tên sản phẩm" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                <ComboBox x:Name="DisplayNameUnit"  materialDesign:HintAssist.Hint="Đơn vị đo" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
-                <ComboBox x:Name="DisplayNameCategory"  materialDesign:HintAssist.Hint="Loại sản phẩm" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+                <ComboBox x:Name="DisplayNameUnit" Loaded="loadUnit" materialDesign:HintAssist.Hint="Đơn vị đo" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+                <ComboBox x:Name="DisplayNameCategory" Loaded="loadCategory" materialDesign:HintAssist.Hint="Loại sản phẩm" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
                 <TextBox x:Name="Price" Margin="5" materialDesign:HintAssist.Hint="Đơn giá" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <TextBox x:Name="Count" Margin="5" materialDesign:HintAssist.Hint="Số lượng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 
@@ -25,21 +25,21 @@
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="1">
             <WrapPanel HorizontalAlignment="Center">
-                <Button Content="Thêm" Margin="5" Width="100"></Button>
-                <Button Content="Xóa" Margin="5" Width="100"></Button>
-                <Button Content="Sửa" Margin="5" Width="100"></Button>
+                <Button Click="btn_Add" Content="Thêm" Margin="5" Width="100"></Button>
+                <Button Click="btn_Del" Content="Xóa" Margin="5" Width="100"></Button>
+                <Button Click="btn_Edit" Content="Sửa" Margin="5" Width="100"></Button>
             </WrapPanel>
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <DataGrid Name="CategoryDTG" PreviewMouseDoubleClick="doubleClick" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" >
+                <DataGrid Name="ProductDTG" PreviewMouseDoubleClick="doubleClick" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
-                        <DataGridTextColumn Header="Loại sản phẩm" Binding="{Binding DisplayName}"/>
-                        <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
-                        <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
-                        <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
-                        <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                        <DataGridTextColumn Header="Tên sản phẩm" Binding="{Binding DisplayName}"/>
+                        <DataGridTextColumn Header="Đơn vị đo" Binding="{Binding Unit.DisplayName}"/>
+                        <DataGridTextColumn Header="Loại sản phẩm" Binding="{Binding Category.DisplayName}"/>
+                        <DataGridTextColumn Header="Đơn giá" Binding="{Binding Price}"/>
+                        <DataGridTextColumn Header="Số lượng" Binding="{Binding Counts}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>

@@ -23,12 +23,46 @@ namespace ManagementSystem
         public ProductUC()
         {
             InitializeComponent();
+            Load();
         }
 
         private void Load()
         {
+            ProductDTG.ItemsSource = DataProvider.Ins.DB.Products.ToList();
+        }
+
+        private void btn_Add(object sender, RoutedEventArgs e)
+        {
 
         }
 
+        private void btn_Del(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Edit(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void doubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void loadUnit(object sender, RoutedEventArgs e)
+        {
+            List<Unit> loadObject = DataProvider.Ins.DB.Units.ToList();
+            for (int i=0;i< loadObject.Count;i++)
+                DisplayNameUnit.Items.Add(loadObject[i].DisplayName);
+        }
+
+        private void loadCategory(object sender, RoutedEventArgs e)
+        {
+            List<Category> loadObject = DataProvider.Ins.DB.Categories.ToList();
+            for (int i = 0; i < loadObject.Count; i++)
+                DisplayNameCategory.Items.Add(loadObject[i].DisplayName);
+        }
     }
 }

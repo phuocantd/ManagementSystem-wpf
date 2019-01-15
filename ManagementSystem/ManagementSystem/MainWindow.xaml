@@ -134,11 +134,11 @@
                     <TextBlock Text="An Nguyễn Phước" FontSize="17" VerticalAlignment="Center"/>
                     <materialDesign:PopupBox PlacementMode="BottomAndAlignCentres" StaysOpen="False" Margin="10">
                         <StackPanel Width="150">
-                            <Button Content="Settings"/>
-                            <Button Content="Account"/>
-                            <Button Content="Help"/>
+                            <Button Click="btn_Aboutme" Content="About me"/>
+                            <Button Click="btn_Source" Content="Source"/>
+                            <Button Click="btn_Demo" Content="Demo"/>
                             <Separator/>
-                            <Button Content="Logout" Click="btn_logout"/>
+                            <Button Content="Exit" Click="btn_Exit"/>
                         </StackPanel>
                     </materialDesign:PopupBox>
                     
