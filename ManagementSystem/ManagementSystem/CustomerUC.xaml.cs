@@ -107,12 +107,19 @@ namespace ManagementSystem
 
         private void CustomerDTG_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Customer tmp = CustomerDTG.SelectedItem as Customer;
-            DisplayName.Text = tmp.DisplayName;
-            Address.Text = tmp.AddressCus;
-            Phone.Text = tmp.Phone;
-            Email.Text = tmp.Mail;
-            MoreInfo.Text = tmp.MoreInfo;
+            try
+            {
+                Customer tmp = CustomerDTG.SelectedItem as Customer;
+                DisplayName.Text = tmp.DisplayName;
+                Address.Text = tmp.AddressCus;
+                Phone.Text = tmp.Phone;
+                Email.Text = tmp.Mail;
+                MoreInfo.Text = tmp.MoreInfo;
+            }
+            catch
+            {
+
+            }
         }
     }
 }

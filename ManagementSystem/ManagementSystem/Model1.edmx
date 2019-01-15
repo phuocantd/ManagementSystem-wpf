@@ -51,7 +51,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DisplayName" Type="nvarchar(max)" />
           <Property Name="Counts" Type="int" />
-          <Property Name="Price" Type="float" />
+          <Property Name="Price" Type="bigint" />
           <Property Name="ID_Unit" Type="int" Nullable="false" />
           <Property Name="ID_Category" Type="int" Nullable="false" />
         </EntityType>
@@ -61,7 +61,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DisplayName" Type="nvarchar(max)" />
-          <Property Name="PercentSale" Type="float" />
+          <Property Name="PercentSale" Type="int" />
         </EntityType>
         <EntityType Name="Transport">
           <Key>
@@ -69,7 +69,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DisplayName" Type="nvarchar(max)" />
-          <Property Name="Price" Type="float" />
+          <Property Name="Price" Type="bigint" />
         </EntityType>
         <EntityType Name="Unit">
           <Key>
@@ -78,7 +78,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DisplayName" Type="nvarchar(max)" />
         </EntityType>
-        <Association Name="FK__Bill__ID_Custome__48CFD27E">
+        <Association Name="FK__Bill__ID_Custome__49C3F6B7">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
           <ReferentialConstraint>
@@ -90,7 +90,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Bill__ID_Sale__49C3F6B7">
+        <Association Name="FK__Bill__ID_Sale__4AB81AF0">
           <End Role="Sale" Type="Self.Sale" Multiplicity="0..1" />
           <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
           <ReferentialConstraint>
@@ -102,7 +102,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Bill__ID_Transpo__4AB81AF0">
+        <Association Name="FK__Bill__ID_Transpo__4BAC3F29">
           <End Role="Transport" Type="Self.Transport" Multiplicity="0..1" />
           <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
           <ReferentialConstraint>
@@ -114,7 +114,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillDetai__ID_Pr__4F7CD00D">
+        <Association Name="FK__BillDetai__ID_Pr__5165187F">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -126,7 +126,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillDetai__SumPr__4E88ABD4">
+        <Association Name="FK__BillDetai__SumPr__5070F446">
           <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
           <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -171,23 +171,23 @@
           <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transport" EntityType="Self.Transport" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Bill__ID_Custome__48CFD27E" Association="Self.FK__Bill__ID_Custome__48CFD27E">
+          <AssociationSet Name="FK__Bill__ID_Custome__49C3F6B7" Association="Self.FK__Bill__ID_Custome__49C3F6B7">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Bill" EntitySet="Bill" />
           </AssociationSet>
-          <AssociationSet Name="FK__Bill__ID_Sale__49C3F6B7" Association="Self.FK__Bill__ID_Sale__49C3F6B7">
+          <AssociationSet Name="FK__Bill__ID_Sale__4AB81AF0" Association="Self.FK__Bill__ID_Sale__4AB81AF0">
             <End Role="Sale" EntitySet="Sale" />
             <End Role="Bill" EntitySet="Bill" />
           </AssociationSet>
-          <AssociationSet Name="FK__Bill__ID_Transpo__4AB81AF0" Association="Self.FK__Bill__ID_Transpo__4AB81AF0">
+          <AssociationSet Name="FK__Bill__ID_Transpo__4BAC3F29" Association="Self.FK__Bill__ID_Transpo__4BAC3F29">
             <End Role="Transport" EntitySet="Transport" />
             <End Role="Bill" EntitySet="Bill" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillDetai__ID_Pr__4F7CD00D" Association="Self.FK__BillDetai__ID_Pr__4F7CD00D">
+          <AssociationSet Name="FK__BillDetai__ID_Pr__5165187F" Association="Self.FK__BillDetai__ID_Pr__5165187F">
             <End Role="Product" EntitySet="Product" />
             <End Role="BillDetail" EntitySet="BillDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillDetai__SumPr__4E88ABD4" Association="Self.FK__BillDetai__SumPr__4E88ABD4">
+          <AssociationSet Name="FK__BillDetai__SumPr__5070F446" Association="Self.FK__BillDetai__SumPr__5070F446">
             <End Role="Bill" EntitySet="Bill" />
             <End Role="BillDetail" EntitySet="BillDetail" />
           </AssociationSet>
@@ -213,23 +213,23 @@
           <EntitySet Name="Sales" EntityType="QuanLyBanHangModel.Sale" />
           <EntitySet Name="Transports" EntityType="QuanLyBanHangModel.Transport" />
           <EntitySet Name="Units" EntityType="QuanLyBanHangModel.Unit" />
-          <AssociationSet Name="FK__Bill__ID_Custome__48CFD27E" Association="QuanLyBanHangModel.FK__Bill__ID_Custome__48CFD27E">
+          <AssociationSet Name="FK__Bill__ID_Custome__49C3F6B7" Association="QuanLyBanHangModel.FK__Bill__ID_Custome__49C3F6B7">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Bill" EntitySet="Bills" />
           </AssociationSet>
-          <AssociationSet Name="FK__Bill__ID_Sale__49C3F6B7" Association="QuanLyBanHangModel.FK__Bill__ID_Sale__49C3F6B7">
+          <AssociationSet Name="FK__Bill__ID_Sale__4AB81AF0" Association="QuanLyBanHangModel.FK__Bill__ID_Sale__4AB81AF0">
             <End Role="Sale" EntitySet="Sales" />
             <End Role="Bill" EntitySet="Bills" />
           </AssociationSet>
-          <AssociationSet Name="FK__Bill__ID_Transpo__4AB81AF0" Association="QuanLyBanHangModel.FK__Bill__ID_Transpo__4AB81AF0">
+          <AssociationSet Name="FK__Bill__ID_Transpo__4BAC3F29" Association="QuanLyBanHangModel.FK__Bill__ID_Transpo__4BAC3F29">
             <End Role="Transport" EntitySet="Transports" />
             <End Role="Bill" EntitySet="Bills" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillDetai__SumPr__4E88ABD4" Association="QuanLyBanHangModel.FK__BillDetai__SumPr__4E88ABD4">
+          <AssociationSet Name="FK__BillDetai__SumPr__5070F446" Association="QuanLyBanHangModel.FK__BillDetai__SumPr__5070F446">
             <End Role="Bill" EntitySet="Bills" />
             <End Role="BillDetail" EntitySet="BillDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillDetai__ID_Pr__4F7CD00D" Association="QuanLyBanHangModel.FK__BillDetai__ID_Pr__4F7CD00D">
+          <AssociationSet Name="FK__BillDetai__ID_Pr__5165187F" Association="QuanLyBanHangModel.FK__BillDetai__ID_Pr__5165187F">
             <End Role="Product" EntitySet="Products" />
             <End Role="BillDetail" EntitySet="BillDetails" />
           </AssociationSet>
@@ -252,10 +252,10 @@
           <Property Name="ID_Sale" Type="Int32" />
           <Property Name="ID_Transport" Type="Int32" />
           <Property Name="SumPrice" Type="Int64" />
-          <NavigationProperty Name="Customer" Relationship="QuanLyBanHangModel.FK__Bill__ID_Custome__48CFD27E" FromRole="Bill" ToRole="Customer" />
-          <NavigationProperty Name="Sale" Relationship="QuanLyBanHangModel.FK__Bill__ID_Sale__49C3F6B7" FromRole="Bill" ToRole="Sale" />
-          <NavigationProperty Name="Transport" Relationship="QuanLyBanHangModel.FK__Bill__ID_Transpo__4AB81AF0" FromRole="Bill" ToRole="Transport" />
-          <NavigationProperty Name="BillDetails" Relationship="QuanLyBanHangModel.FK__BillDetai__SumPr__4E88ABD4" FromRole="Bill" ToRole="BillDetail" />
+          <NavigationProperty Name="Customer" Relationship="QuanLyBanHangModel.FK__Bill__ID_Custome__49C3F6B7" FromRole="Bill" ToRole="Customer" />
+          <NavigationProperty Name="Sale" Relationship="QuanLyBanHangModel.FK__Bill__ID_Sale__4AB81AF0" FromRole="Bill" ToRole="Sale" />
+          <NavigationProperty Name="Transport" Relationship="QuanLyBanHangModel.FK__Bill__ID_Transpo__4BAC3F29" FromRole="Bill" ToRole="Transport" />
+          <NavigationProperty Name="BillDetails" Relationship="QuanLyBanHangModel.FK__BillDetai__SumPr__5070F446" FromRole="Bill" ToRole="BillDetail" />
         </EntityType>
         <EntityType Name="BillDetail">
           <Key>
@@ -266,8 +266,8 @@
           <Property Name="ID_Product" Type="Int32" Nullable="false" />
           <Property Name="SumCount" Type="Int32" />
           <Property Name="SumPrice" Type="Int64" />
-          <NavigationProperty Name="Bill" Relationship="QuanLyBanHangModel.FK__BillDetai__SumPr__4E88ABD4" FromRole="BillDetail" ToRole="Bill" />
-          <NavigationProperty Name="Product" Relationship="QuanLyBanHangModel.FK__BillDetai__ID_Pr__4F7CD00D" FromRole="BillDetail" ToRole="Product" />
+          <NavigationProperty Name="Bill" Relationship="QuanLyBanHangModel.FK__BillDetai__SumPr__5070F446" FromRole="BillDetail" ToRole="Bill" />
+          <NavigationProperty Name="Product" Relationship="QuanLyBanHangModel.FK__BillDetai__ID_Pr__5165187F" FromRole="BillDetail" ToRole="Product" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -287,7 +287,7 @@
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MoreInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Bills" Relationship="QuanLyBanHangModel.FK__Bill__ID_Custome__48CFD27E" FromRole="Customer" ToRole="Bill" />
+          <NavigationProperty Name="Bills" Relationship="QuanLyBanHangModel.FK__Bill__ID_Custome__49C3F6B7" FromRole="Customer" ToRole="Bill" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -296,10 +296,10 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Counts" Type="Int32" />
-          <Property Name="Price" Type="Double" />
+          <Property Name="Price" Type="Int64" />
           <Property Name="ID_Unit" Type="Int32" Nullable="false" />
           <Property Name="ID_Category" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BillDetails" Relationship="QuanLyBanHangModel.FK__BillDetai__ID_Pr__4F7CD00D" FromRole="Product" ToRole="BillDetail" />
+          <NavigationProperty Name="BillDetails" Relationship="QuanLyBanHangModel.FK__BillDetai__ID_Pr__5165187F" FromRole="Product" ToRole="BillDetail" />
           <NavigationProperty Name="Category" Relationship="QuanLyBanHangModel.FK__Product__ID_Cate__45F365D3" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="Unit" Relationship="QuanLyBanHangModel.FK__Product__ID_Cate__44FF419A" FromRole="Product" ToRole="Unit" />
         </EntityType>
@@ -309,8 +309,8 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PercentSale" Type="Double" />
-          <NavigationProperty Name="Bills" Relationship="QuanLyBanHangModel.FK__Bill__ID_Sale__49C3F6B7" FromRole="Sale" ToRole="Bill" />
+          <Property Name="PercentSale" Type="Int32" />
+          <NavigationProperty Name="Bills" Relationship="QuanLyBanHangModel.FK__Bill__ID_Sale__4AB81AF0" FromRole="Sale" ToRole="Bill" />
         </EntityType>
         <EntityType Name="Transport">
           <Key>
@@ -318,8 +318,8 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Double" />
-          <NavigationProperty Name="Bills" Relationship="QuanLyBanHangModel.FK__Bill__ID_Transpo__4AB81AF0" FromRole="Transport" ToRole="Bill" />
+          <Property Name="Price" Type="Int64" />
+          <NavigationProperty Name="Bills" Relationship="QuanLyBanHangModel.FK__Bill__ID_Transpo__4BAC3F29" FromRole="Transport" ToRole="Bill" />
         </EntityType>
         <EntityType Name="Unit">
           <Key>
@@ -329,7 +329,7 @@
           <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Products" Relationship="QuanLyBanHangModel.FK__Product__ID_Cate__44FF419A" FromRole="Unit" ToRole="Product" />
         </EntityType>
-        <Association Name="FK__Bill__ID_Custome__48CFD27E">
+        <Association Name="FK__Bill__ID_Custome__49C3F6B7">
           <End Type="QuanLyBanHangModel.Customer" Role="Customer" Multiplicity="0..1" />
           <End Type="QuanLyBanHangModel.Bill" Role="Bill" Multiplicity="*" />
           <ReferentialConstraint>
@@ -341,7 +341,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Bill__ID_Sale__49C3F6B7">
+        <Association Name="FK__Bill__ID_Sale__4AB81AF0">
           <End Type="QuanLyBanHangModel.Sale" Role="Sale" Multiplicity="0..1" />
           <End Type="QuanLyBanHangModel.Bill" Role="Bill" Multiplicity="*" />
           <ReferentialConstraint>
@@ -353,7 +353,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Bill__ID_Transpo__4AB81AF0">
+        <Association Name="FK__Bill__ID_Transpo__4BAC3F29">
           <End Type="QuanLyBanHangModel.Transport" Role="Transport" Multiplicity="0..1" />
           <End Type="QuanLyBanHangModel.Bill" Role="Bill" Multiplicity="*" />
           <ReferentialConstraint>
@@ -365,7 +365,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillDetai__SumPr__4E88ABD4">
+        <Association Name="FK__BillDetai__SumPr__5070F446">
           <End Type="QuanLyBanHangModel.Bill" Role="Bill" Multiplicity="1" />
           <End Type="QuanLyBanHangModel.BillDetail" Role="BillDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -377,7 +377,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillDetai__ID_Pr__4F7CD00D">
+        <Association Name="FK__BillDetai__ID_Pr__5165187F">
           <End Type="QuanLyBanHangModel.Product" Role="Product" Multiplicity="1" />
           <End Type="QuanLyBanHangModel.BillDetail" Role="BillDetail" Multiplicity="*" />
           <ReferentialConstraint>

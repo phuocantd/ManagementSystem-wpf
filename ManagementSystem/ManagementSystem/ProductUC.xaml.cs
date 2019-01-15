@@ -80,7 +80,7 @@ namespace ManagementSystem
                     ID_Category = (from m in DataProvider.Ins.DB.Categories
                                    where m.DisplayName == DisplayNameCategory.SelectedItem.ToString()
                                    select m.ID).Single(),
-                    Price = double.Parse(Price.Text),
+                    Price = int.Parse(Price.Text),
                     Counts = int.Parse(Count.Text)
                 };
                 DataProvider.Ins.DB.Products.Add(newObject);
@@ -121,7 +121,7 @@ namespace ManagementSystem
                 updateObject.ID_Category = (from m in DataProvider.Ins.DB.Categories
                                where m.DisplayName == DisplayNameCategory.SelectedItem.ToString()
                                select m.ID).Single();
-                updateObject.Price = double.Parse(Price.Text);
+                updateObject.Price = int.Parse(Price.Text);
                 updateObject.Counts = int.Parse(Count.Text);
 
                 DataProvider.Ins.DB.SaveChanges();
@@ -147,12 +147,20 @@ namespace ManagementSystem
 
         private void ProductDTG_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Product tmp = (ProductDTG.SelectedItem as Product);
-            DisplayName.Text = tmp.DisplayName;
-            DisplayNameUnit.Text = tmp.Unit.DisplayName;
-            DisplayNameCategory.Text = tmp.Category.DisplayName;
-            Price.Text = $"{tmp.Price}";
-            Count.Text = $"{tmp.Counts}";
+            try
+            {
+
+                Product tmp = (ProductDTG.SelectedItem as Product);
+                DisplayName.Text = tmp.DisplayName;
+                DisplayNameUnit.Text = tmp.Unit.DisplayName;
+                DisplayNameCategory.Text = tmp.Category.DisplayName;
+                Price.Text = $"{tmp.Price}";
+                Count.Text = $"{tmp.Counts}";
+            }
+            catch
+            {
+
+            }
         }
     }
 }

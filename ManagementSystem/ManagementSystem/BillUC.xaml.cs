@@ -147,13 +147,25 @@ namespace ManagementSystem
 
         private void BillDTG_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Bill tmp = (BillDTG.SelectedItem as Bill);
-            DisplayNameCustomer.Text = tmp.Customer.DisplayName;
-            if(tmp.ID_Sale!=null)
-                DisplayNameSale.Text = tmp.Sale.DisplayName;
-            if(tmp.ID_Transport!=null)
-                DisplayNameTransport.Text = tmp.Transport.DisplayName;
-            DateBill.SelectedDate = tmp.DateBill;
+            try
+            {
+                Bill tmp = (BillDTG.SelectedItem as Bill);
+                DisplayNameCustomer.Text = tmp.Customer.DisplayName;
+                if (tmp.ID_Sale != null)
+                    DisplayNameSale.Text = tmp.Sale.DisplayName;
+                else
+                    DisplayNameSale.SelectedIndex = -1;
+                if (tmp.ID_Transport != null)
+                    DisplayNameTransport.Text = tmp.Transport.DisplayName;
+                else
+                    DisplayNameTransport.SelectedIndex = -1;
+                DateBill.SelectedDate = tmp.DateBill;
+            }
+            catch
+            {
+
+            }
+            
         }
 
         private void loadSale(object sender, RoutedEventArgs e)

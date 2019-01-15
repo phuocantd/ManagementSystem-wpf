@@ -11,76 +11,39 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition/>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0">
-                <TextBlock Text="HÓA ĐƠN BÁN HÀNG" HorizontalAlignment="Center" FontWeight="Bold" FontSize="25" Margin="15"/>
-                <WrapPanel HorizontalAlignment="Center">
-                    <ComboBox x:Name="DisplayNameCustomer" SelectionChanged="DisplayNameCustomer_SelectionChanged" Loaded="loadCustomer" materialDesign:HintAssist.Hint="Tên khách hàng" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
-                    <DatePicker x:Name="DateBill" Margin="5 7 5 5" Width="100" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                </WrapPanel>
+            <StackPanel Grid.Row="0" Background="AntiqueWhite">
+                <TextBlock Text="CHI TIẾT HÓA ĐƠN" HorizontalAlignment="Center" FontWeight="Bold" FontSize="25" Margin="15"/>
             </StackPanel>
-            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="auto"/>
-                        </Grid.ColumnDefinitions>
-                        <WrapPanel Grid.Column="0" HorizontalAlignment="Center">
-                            <ComboBox x:Name="DisplayNameProduct" Loaded="loadProduct" materialDesign:HintAssist.Hint="Loại sản phẩm" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
-                            <TextBox x:Name="Count" Margin="5" materialDesign:HintAssist.Hint="Số lượng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                        </WrapPanel>
-                        <StackPanel Grid.Column="1" Orientation="Horizontal">
-                            <Button Click="btn_AddProduct" Content="Thêm" Margin="5" Width="100"></Button>
-                            <Button Click="btn_DelProduct" Content="Xóa" Margin="5" Width="100"></Button>
-                            <Button Click="btn_EditProduct" Content="Sửa" Margin="5" Width="100"></Button>
+            <WrapPanel Grid.Row="1" HorizontalAlignment="Center">
+                <ComboBox x:Name="DisplayNameProduct" Loaded="loadProduct" materialDesign:HintAssist.Hint="Loại sản phẩm" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+                <TextBox x:Name="Count" Margin="5" materialDesign:HintAssist.Hint="Số lượng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            </WrapPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Click="btn_AddProduct" Content="Thêm" Margin="5" Width="100"></Button>
+                <Button Click="btn_DelProduct" Content="Xóa" Margin="5" Width="100"></Button>
+                <Button Click="btn_EditProduct" Content="Sửa" Margin="5" Width="100"></Button>
 
-                        </StackPanel>
-                    </Grid>
-                    <DataGrid Grid.Row="1"  Name="ProductDTG" AutoGenerateColumns="True" MouseDoubleClick="ProductGTD_MouseDoubleClick" SelectionChanged="ProductGTD_SelectionChanged"  ColumnWidth="*" >
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Tên sản phẩm" Binding="{Binding Product.DisplayName}"/>
-                            <DataGridTextColumn Header="Đơn vị " Binding="{Binding Product.Unit.DisplayName}"/>
-                            <DataGridTextColumn Header="Số lượng" Binding="{Binding SumCount}"/>
-                            <DataGridTextColumn Header="Đơn giá" Binding="{Binding Product.Price}"/>
-                            <DataGridTemplateColumn Header="Thành tiền">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding SumPriceProduct}"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
+            </StackPanel>
+            <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto">
+                <DataGrid   Name="BillDetailDTG" AutoGenerateColumns="False"  SelectionChanged="ProductGTD_SelectionChanged"  ColumnWidth="*" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Tên sản phẩm" Binding="{Binding Product.DisplayName}"/>
+                        <DataGridTextColumn Header="Đơn vị " Binding="{Binding Product.Unit.DisplayName}"/>
+                        <DataGridTextColumn Header="Số lượng" Binding="{Binding SumCount}"/>
+                        <DataGridTextColumn Header="Đơn giá" Binding="{Binding Product.Price}"/>
+                        <DataGridTextColumn Header="Thành tiền" Binding="{Binding SumPrice}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
 
             </ScrollViewer>
-            <StackPanel Grid.Row="2">
-                <Grid>
-                    <ComboBox SelectionChanged="DisplayNameSale_SelectionChanged" HorizontalAlignment="Left" x:Name="DisplayNameSale" Loaded="loadSale" materialDesign:HintAssist.Hint="Tên khuyến mãi" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
-                    <TextBlock HorizontalAlignment="Center" x:Name="PercentSale" Margin="5" Text="% giảm giá: "  Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
-                    <TextBlock HorizontalAlignment="Right" x:Name="SumSale" Margin="5" Text="Thành tiền"  Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
-                </Grid>
-                <Grid>
-                    <ComboBox HorizontalAlignment="Left" x:Name="DisplayNameTransport" Loaded="loadTransport" materialDesign:HintAssist.Hint="Tên vận chuyển" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
-                    <TextBlock HorizontalAlignment="Right" x:Name="PriceTransport" Margin="5" Text="Phí vận chuyển"  Style="{StaticResource MaterialDesignHeadlineTextBlock}"/>
-                </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="4">
+                <Button Grid.Column="0" Click="btn_Back" Content="Quay lại" Margin="5" Width="100"></Button>
             </StackPanel>
-            <Grid Grid.Row="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Click="btn_Back" Content="Quay lại" Margin="5" ></Button>
-                <Button Grid.Column="1" Click="btn_Export" Content="Lưu và Xuất pdf" Margin="5"></Button>
-            </Grid>
         </Grid>
     </ScrollViewer>
 </UserControl>

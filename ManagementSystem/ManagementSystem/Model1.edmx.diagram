@@ -7,17 +7,17 @@
       <Diagram DiagramId="a55518c53c244af69f8083f4c213fa93" Name="Diagram1">
         <EntityTypeShape EntityType="QuanLyBanHangModel.Bill" Width="1.5" PointX="3" PointY="1" />
         <EntityTypeShape EntityType="QuanLyBanHangModel.BillDetail" Width="1.5" PointX="5.25" PointY="1.25" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Category" Width="1.5" PointX="0.75" PointY="13.25" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Customer" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Category" Width="1.5" PointX="0.75" PointY="11" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Customer" Width="1.5" PointX="0.75" PointY="7.5" />
         <EntityTypeShape EntityType="QuanLyBanHangModel.Product" Width="1.5" PointX="3" PointY="11.5" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Sale" Width="1.5" PointX="0.75" PointY="7.5" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Transport" Width="1.5" PointX="0.75" PointY="5" />
-        <EntityTypeShape EntityType="QuanLyBanHangModel.Unit" Width="1.5" PointX="0.75" PointY="11" />
-        <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Custome__48CFD27E" />
-        <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Sale__49C3F6B7" />
-        <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Transpo__4AB81AF0" />
-        <AssociationConnector Association="QuanLyBanHangModel.FK__BillDetai__SumPr__4E88ABD4" />
-        <AssociationConnector Association="QuanLyBanHangModel.FK__BillDetai__ID_Pr__4F7CD00D" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Sale" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Transport" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="QuanLyBanHangModel.Unit" Width="1.5" PointX="0.75" PointY="13.25" />
+        <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Custome__49C3F6B7" />
+        <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Sale__4AB81AF0" />
+        <AssociationConnector Association="QuanLyBanHangModel.FK__Bill__ID_Transpo__4BAC3F29" />
+        <AssociationConnector Association="QuanLyBanHangModel.FK__BillDetai__SumPr__5070F446" />
+        <AssociationConnector Association="QuanLyBanHangModel.FK__BillDetai__ID_Pr__5165187F" />
         <AssociationConnector Association="QuanLyBanHangModel.FK__Product__ID_Cate__45F365D3" />
         <AssociationConnector Association="QuanLyBanHangModel.FK__Product__ID_Cate__44FF419A" />
       </Diagram>

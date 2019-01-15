@@ -110,7 +110,7 @@ namespace ManagementSystem
                 Transport newObject = new Transport()
                 {
                     DisplayName = DisplayNameTransport.Text,
-                    Price = double.Parse(PriceTransport.Text),
+                    Price = int.Parse(PriceTransport.Text),
                 };
                 DataProvider.Ins.DB.Transports.Add(newObject);
                 DataProvider.Ins.DB.SaveChanges();
@@ -143,7 +143,7 @@ namespace ManagementSystem
                                         where m.ID == ID
                                         select m).Single();
                 updateObject.DisplayName = DisplayNameTransport.Text;
-                updateObject.Price = double.Parse(PriceTransport.Text);
+                updateObject.Price = int.Parse(PriceTransport.Text);
 
                 DataProvider.Ins.DB.SaveChanges();
                 LoadTransport(); setNullTransport();
@@ -152,9 +152,16 @@ namespace ManagementSystem
 
         private void TransportDTG_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Transport tmp = (TransportDTG.SelectedItem as Transport);
-            DisplayNameTransport.Text = tmp.DisplayName;
-            PriceTransport.Text = $"{tmp.Price}";
+            try
+            {
+                Transport tmp = (TransportDTG.SelectedItem as Transport);
+                DisplayNameTransport.Text = tmp.DisplayName;
+                PriceTransport.Text = $"{tmp.Price}";
+            }
+            catch
+            {
+
+            }
         }
 
         private void btn_AddSale(object sender, RoutedEventArgs e)
@@ -164,7 +171,7 @@ namespace ManagementSystem
                 Sale newObject = new Sale()
                 {
                     DisplayName = DisplayNameSale.Text,
-                    PercentSale = double.Parse(PercentSale.Text),
+                    PercentSale = int.Parse(PercentSale.Text),
                 };
                 DataProvider.Ins.DB.Sales.Add(newObject);
                 DataProvider.Ins.DB.SaveChanges();
@@ -197,7 +204,7 @@ namespace ManagementSystem
                                           where m.ID == ID
                                           select m).Single();
                 updateObject.DisplayName = DisplayNameSale.Text;
-                updateObject.PercentSale = double.Parse(PercentSale.Text);
+                updateObject.PercentSale = int.Parse(PercentSale.Text);
 
                 DataProvider.Ins.DB.SaveChanges();
                 LoadSale(); setNullSale();
@@ -206,9 +213,16 @@ namespace ManagementSystem
 
         private void SaleDTG_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Sale tmp = (SaleDTG.SelectedItem as Sale);
-            DisplayNameSale.Text = tmp.DisplayName;
-            PercentSale.Text = $"{tmp.PercentSale}";
+            try
+            {
+                Sale tmp = (SaleDTG.SelectedItem as Sale);
+                DisplayNameSale.Text = tmp.DisplayName;
+                PercentSale.Text = $"{tmp.PercentSale}";
+            }
+            catch
+            {
+
+            }
         }
 
         

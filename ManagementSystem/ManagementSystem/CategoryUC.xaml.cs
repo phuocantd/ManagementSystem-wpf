@@ -105,8 +105,16 @@ namespace ManagementSystem
 
         private void CategoryDTG_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Category tmp = (CategoryDTG.SelectedItem as Category);
-            DisplayName.Text = tmp.DisplayName;
+            try
+            {
+                Category tmp = (CategoryDTG.SelectedItem as Category);
+                DisplayName.Text = tmp.DisplayName;
+
+            }
+            catch
+            {
+
+            }
         }
     }
 }

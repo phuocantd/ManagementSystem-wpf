@@ -22,7 +22,7 @@ namespace ManagementSystem
     
         public int ID { get; set; }
         public string DisplayName { get; set; }
-        public Nullable<double> PercentSale { get; set; }
+        public Nullable<int> PercentSale { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bill> Bills { get; set; }
