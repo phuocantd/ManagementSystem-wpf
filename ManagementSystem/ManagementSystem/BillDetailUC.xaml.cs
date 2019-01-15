@@ -67,6 +67,7 @@ namespace ManagementSystem
             Bill updateObject = (from m in DataProvider.Ins.DB.Bills
                                  where m.ID == ID_Bills
                                  select m).Single();
+
             List<long?> list = (from m in DataProvider.Ins.DB.BillDetails
                              where m.ID_Bill == ID_Bills
                              select (m.SumPrice)).ToList();

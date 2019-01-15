@@ -4,9 +4,54 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ManagementSystem"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" FontSize="20"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <ItemsControl ItemsSource="{Binding}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="10,10,10,80" VerticalAlignment="Bottom">
+                        <Border Name="br" Margin="3,10,3,10"  CornerRadius="5" 
+                                Background="{Binding Color}"
+                                Width="30" BorderBrush="{Binding Color}"  
+                                BorderThickness="3" 
+                                Height="{Binding Height}">
+                            <Border.Triggers>
+                                <EventTrigger RoutedEvent="Border.Loaded">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation From="0"  
+                                                             Storyboard.TargetName="br" 
+                                 Storyboard.TargetProperty="(FrameworkElement.Height)" 
+                                                              Duration="0:0:02.0">
+
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Border.Triggers>
+                        </Border>
+                        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" 
+                                   FontFamily="Latha" Text="{Binding Data}">
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform Y="30"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                        <TextBlock HorizontalAlignment="Center" Foreground="{Binding Color}"
+                                   FontWeight="Bold" FontFamily="Latha" 
+                                   Text="{Binding Name}">
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform Y="-20"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </UserControl>
