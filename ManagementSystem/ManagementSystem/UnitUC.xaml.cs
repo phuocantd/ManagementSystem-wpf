@@ -37,6 +37,15 @@ namespace ManagementSystem
             UnitDisplayName.Text = "";
         }
 
+        bool checkExist(string name)
+        {
+            int id = 0;
+            id = (from m in DataProvider.Ins.DB.Units
+                      where m.DisplayName == name
+                      select 1).Single();
+            return id == 1 ? true : false;
+        }
+
         private void btn_Add(object sender, RoutedEventArgs e)
         {
             if (UnitDisplayName.Text == "" || checkExist(UnitDisplayName.Text))
@@ -50,19 +59,8 @@ namespace ManagementSystem
                 DataProvider.Ins.DB.SaveChanges();
                 Load(); setNull();
             }
-            
+
         }
-
-        bool checkExist(string name)
-        {
-            int id = 0;
-            id = (from m in DataProvider.Ins.DB.Units
-                      where m.DisplayName == name
-                      select 1).Single();
-            return id == 1 ? true : false;
-        }
-
-
 
         private void btn_Edit(object sender, RoutedEventArgs e)
         {

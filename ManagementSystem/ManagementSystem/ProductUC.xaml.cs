@@ -24,5 +24,11 @@ namespace ManagementSystem
         {
             InitializeComponent();
         }
+
+        private void Load()
+        {
+
+        }
+
     }
 }
