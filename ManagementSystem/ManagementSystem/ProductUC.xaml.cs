@@ -135,16 +135,6 @@ namespace ManagementSystem
             }
         }
 
-        private void doubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Product tmp = (ProductDTG.SelectedItem as Product);
-            DisplayName.Text = tmp.DisplayName;
-            DisplayNameUnit.Text = tmp.Unit.DisplayName;
-            DisplayNameCategory.Text = tmp.Category.DisplayName;
-            Price.Text = $"{tmp.Price}";
-            Count.Text = $"{tmp.Counts}";
-        }
-
         private void loadUnit(object sender, RoutedEventArgs e)
         {
             List<Unit> loadObject = DataProvider.Ins.DB.Units.ToList();
@@ -159,6 +149,16 @@ namespace ManagementSystem
             for (int i = 0; i < loadObject.Count; i++)
                 DisplayNameCategory.Items.Add(loadObject[i].DisplayName);
             DisplayNameCategory.SelectedIndex = 1;
+        }
+
+        private void ProductDTG_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Product tmp = (ProductDTG.SelectedItem as Product);
+            DisplayName.Text = tmp.DisplayName;
+            DisplayNameUnit.Text = tmp.Unit.DisplayName;
+            DisplayNameCategory.Text = tmp.Category.DisplayName;
+            Price.Text = $"{tmp.Price}";
+            Count.Text = $"{tmp.Counts}";
         }
     }
 }

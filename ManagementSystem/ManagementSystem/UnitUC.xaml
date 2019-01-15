@@ -27,7 +27,7 @@
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <DataGrid PreviewMouseDoubleClick="doubleClick" Name="UnitDataGrid" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" >
+                <DataGrid SelectionChanged="UnitDataGrid_SelectionChanged"  Name="UnitDataGrid" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                         <DataGridTextColumn Header="Đơn vị đo" Binding="{Binding DisplayName}"/>

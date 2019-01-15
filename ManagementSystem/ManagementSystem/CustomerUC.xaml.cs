@@ -105,7 +105,7 @@ namespace ManagementSystem
             }
         }
 
-        private void doubleClick(object sender, MouseButtonEventArgs e)
+        private void CustomerDTG_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Customer tmp = CustomerDTG.SelectedItem as Customer;
             DisplayName.Text = tmp.DisplayName;

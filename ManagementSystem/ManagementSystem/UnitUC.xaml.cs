@@ -106,8 +106,7 @@ namespace ManagementSystem
             }
         }
 
-
-        private void doubleClick(object sender, MouseButtonEventArgs e)
+        private void UnitDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Unit tmp = (UnitDataGrid.SelectedItem as Unit);
             UnitDisplayName.Text = tmp.DisplayName;

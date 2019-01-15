@@ -103,7 +103,7 @@ namespace ManagementSystem
             }
         }
 
-        private void doubleClick(object sender, MouseButtonEventArgs e)
+        private void CategoryDTG_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Category tmp = (CategoryDTG.SelectedItem as Category);
             DisplayName.Text = tmp.DisplayName;

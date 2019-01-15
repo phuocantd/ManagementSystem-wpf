@@ -27,7 +27,7 @@
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <DataGrid Name="CategoryDTG" PreviewMouseDoubleClick="doubleClick" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" >
+                <DataGrid Name="CategoryDTG" SelectionChanged="CategoryDTG_SelectionChanged" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                         <DataGridTextColumn Header="Loại sản phẩm" Binding="{Binding DisplayName}"/>

@@ -31,7 +31,7 @@
         </materialDesign:Card>
         <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <DataGrid x:Name="CustomerDTG" PreviewMouseDoubleClick="doubleClick" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" >
+                <DataGrid x:Name="CustomerDTG" SelectionChanged="CustomerDTG_SelectionChanged" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                         <DataGridTextColumn Header="Tên khách hàng" Binding="{Binding DisplayName}"/>
