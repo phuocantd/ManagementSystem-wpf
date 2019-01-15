@@ -60,8 +60,8 @@
             </materialDesign:Card>
             <materialDesign:Card Grid.Row="1">
                 <WrapPanel>
-                    <TextBox x:Name="DisplayNameSale" Margin="5" materialDesign:HintAssist.Hint="Tên Vận chuyển" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                    <TextBox x:Name="PercentSale" Margin="5" materialDesign:HintAssist.Hint="Phí vận chuyển" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="DisplayNameSale" Margin="5" materialDesign:HintAssist.Hint="Tên khuyến mãi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="PercentSale" Margin="5" materialDesign:HintAssist.Hint="% khuyến mãi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 </WrapPanel>
             </materialDesign:Card>
             <materialDesign:Card Grid.Row="2">

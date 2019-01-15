@@ -5,8 +5,44 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ManagementSystem"
              mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid x:Name="GridBill">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Grid.Row="0">
+            <WrapPanel>
+                <ComboBox x:Name="DisplayNameCustomer" Loaded="loadCustomer" materialDesign:HintAssist.Hint="Tên khách hàng" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+                <DatePicker x:Name="DateBill" Margin="5 7 5 5" materialDesign:HintAssist.Hint="Ngày mua" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                <ComboBox x:Name="DisplayNameSale" Loaded="loadSale" materialDesign:HintAssist.Hint="Khuyến mãi" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+                <ComboBox x:Name="DisplayNameTransport" Loaded="loadTransport" materialDesign:HintAssist.Hint="Vận chuyển" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="1">
+            <WrapPanel HorizontalAlignment="Center">
+                <Button Click="btn_Add" Content="Thêm" Margin="5" Width="100"></Button>
+                <Button Click="btn_Del" Content="Xóa" Margin="5" Width="100"></Button>
+                <Button Click="btn_Edit" Content="Sửa" Margin="5" Width="100"></Button>
+                <Button Click="btn_BillDetail" Content="Chi tiết" Margin="5" Width="100"></Button>
+            </WrapPanel>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <DataGrid SelectionChanged="BillDTG_SelectionChanged"  Name="BillDTG" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                        <DataGridTextColumn Header="Tên khách hàng" Binding="{Binding Customer.DisplayName}"/>
+                        <DataGridTextColumn Header="Ngày mua" Binding="{Binding DateBill}"/>
+                        <DataGridTextColumn Header="Khuyến mãi" Binding="{Binding Sale.DisplayName}"/>
+                        <DataGridTextColumn Header="Vận chuyển" Binding="{Binding Transport.DisplayName}"/>
+                        <DataGridTextColumn Header="Tổng tiền" Binding="{Binding SumPrice}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </materialDesign:Card>
     </Grid>
 </UserControl>

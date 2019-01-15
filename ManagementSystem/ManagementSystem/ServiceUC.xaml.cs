@@ -86,7 +86,7 @@ namespace ManagementSystem
         {
             try
             {
-                if (!PercentSale.Text.All(char.IsDigit))
+                if (!PercentSale.Text.All(char.IsDigit) || int.Parse(PercentSale.Text)>100)
                 {
                     return false;
                 }

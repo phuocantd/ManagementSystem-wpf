@@ -79,6 +79,9 @@
     <Compile Include="BillDetail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="BillDetailUC.xaml.cs">
+      <DependentUpon>BillDetailUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
     <Compile Include="UnitUC.xaml.cs">
       <DependentUpon>UnitUC.xaml</DependentUpon>
     </Compile>
+    <Page Include="BillDetailUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BillUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

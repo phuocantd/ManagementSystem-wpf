@@ -108,8 +108,16 @@ namespace ManagementSystem
 
         private void UnitDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Unit tmp = (UnitDataGrid.SelectedItem as Unit);
-            UnitDisplayName.Text = tmp.DisplayName;
+            try
+            {
+                Unit tmp = (UnitDataGrid.SelectedItem as Unit);
+                UnitDisplayName.Text = tmp.DisplayName;
+            }
+            catch
+            {
+
+            }
+            
         }
     }
 }

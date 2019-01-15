@@ -52,7 +52,7 @@ namespace ManagementSystem
                     break;
                 case "ItemBill":
                     TitleFunction.Text = "Thanh toán";
-                    usc = new BillUC();
+                    usc = new BillUC(GridMain);
                     GridMain.Children.Add(usc);
                     break;
                 case "ItemProduct":

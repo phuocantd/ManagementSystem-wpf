@@ -74,15 +74,9 @@ namespace ManagementSystem
                 Product newObject = new Product()
                 {
                     DisplayName = DisplayName.Text,
-                    //Unit = (from m in DataProvider.Ins.DB.Units
-                    //        where m.DisplayName == DisplayNameUnit.SelectedItem.ToString()
-                    //        select m).Single(),
                     ID_Unit = (from m in DataProvider.Ins.DB.Units
                                where m.DisplayName == DisplayNameUnit.SelectedItem.ToString()
                                select m.ID).Single(),
-                    //Category = (from m in DataProvider.Ins.DB.Categories
-                    //            where m.DisplayName == DisplayNameCategory.SelectedItem.ToString()
-                    //            select m).Single(),
                     ID_Category = (from m in DataProvider.Ins.DB.Categories
                                    where m.DisplayName == DisplayNameCategory.SelectedItem.ToString()
                                    select m.ID).Single(),
