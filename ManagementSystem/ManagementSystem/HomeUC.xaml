@@ -5,8 +5,57 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ManagementSystem"
              mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="Azure">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             
+            <Grid Grid.Row="1" VerticalAlignment="Center">
+                <materialDesign:Card Width="250" Background="Azure">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image Source="store.jpg" Height="140" Width="196" Stretch="UniformToFill" />
+                        <Button Grid.Row="0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                                HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 16 -20">
+                            <materialDesign:PackIcon Kind="Store" />
+                        </Button>
+                        <StackPanel Grid.Row="1" Margin="8 24 8 0">
+                            <TextBlock FontWeight="Bold"> Store
+                            </TextBlock>
+                            <TextBlock TextWrapping="Wrap" VerticalAlignment="Center">
+                                Ứng dụng quản lý bán hàng cho cửa hàng tạp hóa vừa và nhỏ
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" Grid.Row="2" Orientation="Horizontal" Margin="8">
+                            <Button Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2 0 2 0" materialDesign:RippleAssist.IsCentered="True">
+                                <materialDesign:PackIcon Kind="ShareVariant" />
+                            </Button>
+                            <Button Style="{StaticResource MaterialDesignToolButton}" Width="30" Padding="2 0 2 0" materialDesign:RippleAssist.IsCentered="True">
+                                <materialDesign:PackIcon Kind="Heart" />
+                            </Button>
+                            <materialDesign:PopupBox Padding="2 0 2 0">
+                                <StackPanel>
+                                    <Button Content="More" />
+                                    <Button Content="Options" />
+                                </StackPanel>
+                            </materialDesign:PopupBox>
+                        </StackPanel>
+                    </Grid>
+                </materialDesign:Card>
+            </Grid>
+        </Grid>
+        <ProgressBar Grid.Column="1" Orientation="Vertical" Height="10" IsIndeterminate="True" />
     </Grid>
 </UserControl>

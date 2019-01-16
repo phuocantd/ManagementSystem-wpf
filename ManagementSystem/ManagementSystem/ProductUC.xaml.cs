@@ -55,11 +55,12 @@ namespace ManagementSystem
                 {
                     return false;
                 }
-                int id = 0;
-                id = (from m in DataProvider.Ins.DB.Products
-                      where m.DisplayName == DisplayName.Text
-                      select 1).Single();
-                return id == 1 ? false : true;
+                return true;
+                //int id = 0;
+                //id = (from m in DataProvider.Ins.DB.Products
+                //      where m.DisplayName == DisplayName.Text
+                //      select 1).Single();
+                //return id == 1 ? false : true;
             }
             catch
             {

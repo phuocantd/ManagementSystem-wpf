@@ -177,7 +177,7 @@ namespace ManagementSystem
 
         private void btn_Export(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Tính năng đang phát triển");
         }
 
         private void btn_Back(object sender, RoutedEventArgs e)

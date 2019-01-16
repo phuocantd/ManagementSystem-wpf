@@ -71,11 +71,12 @@ namespace ManagementSystem
                 {
                     return false;
                 }
-                int id = 0;
-                id = (from m in DataProvider.Ins.DB.Transports
-                      where m.DisplayName == DisplayNameTransport.Text
-                      select 1).Single();
-                return id == 1 ? false : true;
+                return true;
+                //int id = 0;
+                //id = (from m in DataProvider.Ins.DB.Transports
+                //      where m.DisplayName == DisplayNameTransport.Text
+                //      select 1).Single();
+                //return id == 1 ? false : true;
             }
             catch
             {
@@ -90,12 +91,13 @@ namespace ManagementSystem
                 {
                     return false;
                 }
-                int id = 0;
-                Sale tmp = (SaleDTG.SelectedItem as Sale);
-                id = (from m in DataProvider.Ins.DB.Sales
-                      where m.DisplayName == DisplayNameSale.Text && m.ID!=tmp.ID
-                      select 1).Single();
-                return id == 1 ? false : true;
+                return true;
+                //int id = 0;
+                //Sale tmp = (SaleDTG.SelectedItem as Sale);
+                //id = (from m in DataProvider.Ins.DB.Sales
+                //      where m.DisplayName == DisplayNameSale.Text && m.ID!=tmp.ID
+                //      select 1).Single();
+                //return id == 1 ? false : true;
             }
             catch
             {

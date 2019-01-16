@@ -43,6 +43,7 @@
             </ScrollViewer>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="4">
                 <Button Grid.Column="0" Click="btn_Back" Content="Quay lại" Margin="5" Width="100"></Button>
+                <Button Grid.Column="0" Click="btn_Export" Content="Xuất pdf" Margin="5" Width="100"></Button>
             </StackPanel>
         </Grid>
     </ScrollViewer>
